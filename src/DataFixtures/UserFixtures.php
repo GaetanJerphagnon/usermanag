@@ -9,14 +9,6 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class UserFixtures extends Fixture
 {
-
-    private $params;
-
-    public function __construct(ParameterBagInterface $params)
-    {
-        $this->params = $params;
-    }
-
     public function load(ObjectManager $manager)
     {
         $loader = new CustomNativeLoader();
@@ -28,9 +20,9 @@ class UserFixtures extends Fixture
         for ($i = 0; $i < count($users); $i++) {
 
             if(in_array("ROLE_ADMIN", $users['user_'.$i]->getRoles())){
-                $users['user_'.$i]->setAvatar($this->params->get('app.path.default_admin_avatar'));
+                $users['user_'.$i]->setAvatar('images/default_admin.jpg');
             } else {
-                $users['user_'.$i]->setAvatar($this->params->get('app.path.default_user_avatar'));
+                $users['user_'.$i]->setAvatar('images/default_user.jpg');
             }
 
             $manager->persist($users['user_'.$i]);
