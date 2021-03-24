@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello FrontController!{% endblock %}
+{% block title %}Homepage{% endblock %}
 
 
 {% block body %}
@@ -12,7 +12,15 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="container-lg my-5 pb-5">
+        {% for type,flash in app.flashes %}
+            {% for message in flash %}
+                <div class=" col-4 px-3 mt-4 mx-auto w-100 alert alert-{{type}}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+<div class="container-lg my-4 pb-5">
 
     {% for user in users %}    
         <div class="card {{ (loop.index is divisible by(2)) ? 'text-white bg-primary' : 'text-dark bg-success' }} mb-3">

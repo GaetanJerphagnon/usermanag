@@ -1,0 +1,18 @@
+{% apply inline_css(source('@styles/bootstrap.min.css')) %}
+
+ <div class="container">
+    <div class="row col-12 d-flex justify-content-center mt-5">
+        <div class="card text-dark border-success mb-3" style="max-width: 40rem;">
+            <div class="card-body">
+            <div>Welcome aboard</div>
+                <p>
+                    Please confirm your email address by clicking the following link: <br><br>
+                    <a href="{{ signedUrl|raw }}">Confirm my Email</a>.
+                    This link will expire in {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endapply %}
