@@ -609,6 +609,9 @@
             "config/packages/reset_password.yaml"
         ]
     },
+    "symfonycasts/verify-email-bundle": {
+        "version": "v1.2.0"
+    },
     "thomaspark/bootswatch": {
         "version": "v4.6.0"
     },

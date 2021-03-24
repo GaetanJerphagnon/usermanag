@@ -34,10 +34,17 @@
         </header>
 
         {% if error|default(false) %}
-            <div class="w-100 alert alert-danger">
+            <div class="px-0 w-100 alert alert-danger">
                 {{ error.messageKey|trans(error.messageData, 'security') }}
             </div>
         {% endif %}
+        {% for type,flash in app.flashes %}
+            {% for message in flash %}
+                <div class=" px-0 w-100 alert alert-{{type}}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
 
         <section class="content">
             <form method="post" action="{{ action|default('') }}">
@@ -61,6 +68,7 @@
                         <i class="fa fa-fw fa-lock"></i>
                         <input type="password" id="password" name="{{ password_parameter|default('_password') }}" class="form-control" placeholder="{{ _password_label }}" required>
                     </div>
+                    <a href="{{ path('app_forgot_password_request') }}" class="ml-4 mt-2">Forgot Password ?</a>
                 </div>
 
                 <div class="form-group field-button">
@@ -68,7 +76,15 @@
                 </div>
             </form>
 
-            <a href="">Forgot Password ?</a>
+            <a href="{{ path('app_register') }}">Sign up</a>
+
+            {% if app.user and app.user.isVerified %}
+                <div class="logo mt-3">
+                    <div class="logo-caption alreadyConnected">
+                        Your are already logged in as <span class="tweak">{{ app.user.username }}</span>, <a class="logout"href="{{ path('app_logout') }}">Log out</a>
+                    </div>
+                </div>
+            {% endif %}
 
             <script type="text/javascript">
                 const loginForm = document.querySelector('form');
