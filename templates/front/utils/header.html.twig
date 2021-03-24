@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary px-5">
+<div>
+    
+</div>
+
+<div class="navbar-collapse">
+    <ul class="navbar-nav mr-lg-auto">
+
+        <li class="nav-item ml-lg-5 mr-lg-3 m-sm-0">
+            <a class="nav-link text-danger" href="{{ path('app_logout') }}">-> Log out</a>
+        </li>
+
+        <li class="nav-item ml-xs-3 m-lg-0 ">
+            <img src="{{ asset(user.avatar) }}" alt="User image" class="rounded mx-auto d-inline" height="35" width="35">
+        </li>
+
+        <li class="nav-item mr-lg-3 m-sm-0">
+            <a class="nav-link  text-light" href="#">{{ user.firstname ~ '  ' ~ user.lastname }}
+            </a>
+        </li>
+
+        {% if "ROLE_ADMIN" in user.roles %}
+        <li class="nav-item mr-3 m-sm-0">
+            <a class="nav-link text-warning" href="{{ path('admin') }}">-> Back-office</a>
+        </li>
+        {% endif %}
+
+    </ul>
+</div>
+</nav>
