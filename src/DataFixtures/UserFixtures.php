@@ -25,6 +25,8 @@ class UserFixtures extends Fixture
                 $users['user_'.$i]->setAvatar('images/default_user.jpg');
             }
 
+            $users['user_'.$i]->setIsVerified(true);
+
             $manager->persist($users['user_'.$i]);
 
             if(($i % $batchSize) === 0){

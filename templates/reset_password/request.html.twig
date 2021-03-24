@@ -9,7 +9,7 @@
     <div class="container text-white">
         <div class="row col-12 d-flex justify-content-center mt-5">
             <div class="card bg-primary">
-            <div class="card-header">Request a password reset</div>
+            <div class="card-header"><a href="{{ path('app_login') }}" class="text-success mr-2"><strong><-</strong></a>Request a password reset</div>
                 <div class="card-body">
                     {{ form_start(requestForm) }}
                         <p>{{ form_label(requestForm.email) }} : {{ form_widget(requestForm.email) }}</p>

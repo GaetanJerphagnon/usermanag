@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+    
+    <div class="container text-dark">
+        <div class="row col-12 d-flex justify-content-center mt-5">
+            <div class="card bg-success col-sm-12 col-lg-5 p-0">
+            <div class="card-header col-12"><a href="{{ path('app_login') }}" class="text-dark mr-2"><strong><-</strong></a>Sign up!</div>
+                <div class="card-body">
+                    {{ form_start(registrationForm) }}
+                    <div class="form-group col-sm-12">
+                        <div class="form-row">
+                            <div class="col-sm-12 col-lg-12">
+                                {{ form_label(registrationForm.email) }}* {{ form_widget(registrationForm.email) }}
+                                <span class="form-error text-danger">
+                                    {{ form_errors(registrationForm.email) }}
+                                </span>
+                            </div>
+                            <div class="col-sm-12 col-lg-12">
+                                {{ form_label(registrationForm.plainPassword,'Password*') }} {{ form_widget(registrationForm.plainPassword) }}
+                                <span class="form-error text-danger">
+                                    {{ form_errors(registrationForm.plainPassword) }}
+                                </span>
+                            </div>
+                            
+                            <div class="col-sm-12 col-lg-12 mt-3">
+                                {{ form_label(registrationForm.firstname) }}* {{ form_widget(registrationForm.firstname) }}
+                                <span class="form-error text-danger">
+                                    {{ form_errors(registrationForm.firstname) }}
+                                </span>
+                            </div>
+                            <div class="col-sm-12 col-lg-12">
+                                {{ form_label(registrationForm.lastname) }}* {{ form_widget(registrationForm.lastname) }}
+                                <span class="form-error text-danger">
+                                    {{ form_errors(registrationForm.lastname) }}
+                                </span>
+                            </div>
+                            <div class="col-sm-12 col-lg-12">
+                                {{ form_label(registrationForm.birthday) }}* {{ form_widget(registrationForm.birthday) }}
+                                <span class="form-error text-danger">
+                                    {{ form_errors(registrationForm.birthday) }}
+                                </span>
+                            </div>
+                            <div class="col-sm-12 col-lg-12">
+                                {{ form_row(registrationForm.agreeTerms) }}
+                                <span class="form-error text-danger">
+                                    {{ form_errors(registrationForm.agreeTerms) }}
+                                </span>
+                            </div>
+                            <div>
+                                <small>
+                                    An email we will be sent to you in order to verify your email address
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+
+                        <button class="btn btn-dark">Register</button>
+                    {{ form_end(registrationForm) }}  
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
