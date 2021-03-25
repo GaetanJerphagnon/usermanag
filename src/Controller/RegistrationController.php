@@ -6,7 +6,6 @@ use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Security\EmailVerifier;
 use App\Security\AppAuthenticator;
-use App\Service\Slugger;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,6 +14,7 @@ use Symfony\Component\Mime\Address;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
+use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 
 class RegistrationController extends AbstractController
@@ -33,7 +33,7 @@ class RegistrationController extends AbstractController
         AppAuthenticator $authenticator,
         GuardAuthenticatorHandler $guardHandler,
         Request $request,
-        Slugger $slugger,
+        TranslatorInterface $translator,
         UserPasswordEncoderInterface $passwordEncoder
      ): Response
     {
@@ -59,7 +59,7 @@ class RegistrationController extends AbstractController
                 (new TemplatedEmail())
                     ->from(new Address('manag.user.bot@gmail.com', 'Manag User Bot'))
                     ->to($user->getEmail())
-                    ->subject('Please Confirm your Email')
+                    ->subject($translator->trans('Please Confirm your Email'))
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
             // do anything else you need here, like send an email
@@ -71,7 +71,8 @@ class RegistrationController extends AbstractController
                 'main' // firewall name in security.yaml
             );
 
-            $this->addFlash('success', 'An email has been sent to verify your address.');
+            $message = $translator->trans('An email has been sent to verify your address');
+            $this->addFlash('success', $message);
 
             return $this->redirectToRoute('app_login');
         }
@@ -84,7 +85,7 @@ class RegistrationController extends AbstractController
     /**
      * @Route("/verify/email", name="app_verify_email")
      */
-    public function verifyUserEmail(Request $request): Response
+    public function verifyUserEmail(Request $request, TranslatorInterface $translator): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
@@ -97,7 +98,8 @@ class RegistrationController extends AbstractController
             return $this->redirectToRoute('app_register');
         }
 
-        $this->addFlash('info', 'Your email address has been verified!');
+        $message = $translator->trans('Your email address has been verified!');
+        $this->addFlash('info', $message);
 
         return $this->redirectToRoute('homepage');
     }

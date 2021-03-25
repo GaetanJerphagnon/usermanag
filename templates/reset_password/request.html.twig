@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Reset your password{% endblock %}
+{% block title %}{% trans %}Reset your password{% endtrans %}{% endblock %}
 
 {% block body %}
     {% for flashError in app.flashes('reset_password_error') %}
@@ -9,18 +9,17 @@
     <div class="container text-white">
         <div class="row col-12 d-flex justify-content-center mt-5">
             <div class="card bg-primary">
-            <div class="card-header"><a href="{{ path('app_login') }}" class="text-success mr-2"><strong><-</strong></a>Request a password reset</div>
+            <div class="card-header"><a href="{{ path('app_login') }}" class="text-success mr-2"><strong><-</strong></a>{% trans %}Request a password reset{% endtrans %}</div>
                 <div class="card-body">
                     {{ form_start(requestForm) }}
                         <p>{{ form_label(requestForm.email) }} : {{ form_widget(requestForm.email) }}</p>
                         <div>
                             <small>
-                                Enter your email address and we we will send you a
-                                link to reset your password.
+                                {% trans %}Enter your email address and we we will send you a link to reset your password{% endtrans %}.
                             </small>
                         </div>
 
-                        <button class="btn btn-success">Send password reset email</button>
+                        <button class="btn btn-success">{% trans %}Send password reset email{% endtrans %}</button>
                     {{ form_end(requestForm) }}  
                 </div>
             </div>
