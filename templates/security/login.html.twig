@@ -68,7 +68,7 @@
                         <i class="fa fa-fw fa-lock"></i>
                         <input type="password" id="password" name="{{ password_parameter|default('_password') }}" class="form-control" placeholder="{{ _password_label }}" required>
                     </div>
-                    <a href="{{ path('app_forgot_password_request') }}" class="ml-4 mt-2">Forgot Password ?</a>
+                    <a href="{{ path('app_forgot_password_request') }}" class="ml-4 mt-2">{% trans from "messages" %}Forgot Password{% endtrans %}?</a>
                 </div>
 
                 <div class="form-group field-button">
@@ -76,12 +76,19 @@
                 </div>
             </form>
 
-            <a href="{{ path('app_register') }}">Sign up</a>
+            <a href="{{ path('app_register') }}">{% trans from "messages" %}Sign up{% endtrans %}</a>
 
             {% if app.user and app.user.isVerified %}
+                <div class="d-flex flex-row mt-2 justify-content-center">
+                    {% for locale in locales %}
+                        <a href="{{ path('change_locale', {'locale': locale}) }}" style="{{ (locale != app.request.locale) ? '' : 'pointer-events: none ;' }}">
+                            <img class="mx-1 px-1 bg-{{ (locale != app.request.locale) ? 'primary' : 'dark' }}" src="{{ asset('images/'~locale~'.png') }}" alt='{{ locale }}' style="border-radius: 3px; {{ (locale != app.request.locale) ? '' : 'opacity:0.33;' }}" height="25">
+                        </a>
+                    {% endfor %}
+                </div>
                 <div class="logo mt-3">
                     <div class="logo-caption alreadyConnected">
-                        Your are already logged in as <span class="tweak">{{ app.user.username }}</span>, <a class="logout"href="{{ path('app_logout') }}">Log out</a>
+                        {% trans from "messages" %}Your are already logged in as{% endtrans %} <span class="tweak">{{ app.user.username }}</span>, <a class="logout"href="{{ path('app_logout') }}">{% trans from "messages"%}Log out{% endtrans %}</a>
                     </div>
                 </div>
             {% endif %}

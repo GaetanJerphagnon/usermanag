@@ -1,19 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Password Reset Email Sent{% endblock %}
+{% block title %}{% trans %}Password Reset Email Sent{% endtrans %}{% endblock %}
 
 {% block body %}
 
 <div class="container">
     <div class="row col-12 d-flex justify-content-center mt-5">
         <div class="card text-dark border-success mb-3" style="max-width: 40rem;">
-            <div class="card-header">An Email has been sent</div>
+            <div class="card-header">{% trans %}An Email has been sent{% endtrans %}</div>
             <div class="card-body">
                 <p>
-                    It contains a link that you can click to reset your password.
-                    This link will expire in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+                    {% trans %}It contains a link that you can click to reset your password{% endtrans %}.
+                    {% trans %}This link will expire in{% endtrans %} {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
                 </p>
-                <p>If you don't receive an email please check your spam folder or <a href="{{ path('app_forgot_password_request') }}">try again</a>.</p>
+                <p>{% trans %}If you don't receive an email please check your spam folder or{% endtrans %} <a href="{{ path('app_forgot_password_request') }}">{% trans %}try again{% endtrans %}</p>
             </div>
         </div>
     </div>

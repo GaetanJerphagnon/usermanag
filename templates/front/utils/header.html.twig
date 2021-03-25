@@ -4,27 +4,39 @@
 </div>
 
 <div class="navbar-collapse">
-    <ul class="navbar-nav mr-lg-auto">
+    <div class="container d-flex justify-content-between align-items-center">
+        <ul class="navbar-nav mr-lg-auto">
 
-        <li class="nav-item ml-lg-5 mr-lg-3 m-sm-0">
-            <a class="nav-link text-danger" href="{{ path('app_logout') }}">-> Log out</a>
-        </li>
+            <li class="nav-item ml-lg-5 mr-lg-3 m-sm-0">
+                <a class="nav-link text-danger" href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt"></i> {% trans %}Log out{% endtrans %}</a>
+            </li>
 
-        <li class="nav-item ml-xs-3 m-lg-0 ">
-            <img src="{{ asset(user.avatar) }}" alt="User image" class="rounded mx-auto d-inline" height="35" width="35">
-        </li>
+            <li class="nav-item ml-xs-3 m-lg-0 ">
+                <img src="{{ asset(user.avatar) }}" alt="User image" class="rounded mx-auto d-inline" height="35" width="35">
+            </li>
 
-        <li class="nav-item mr-lg-3 m-sm-0">
-            <a class="nav-link  text-light" href="#">{{ user.firstname ~ '  ' ~ user.lastname }}
-            </a>
-        </li>
+            <li class="nav-item mr-lg-3 m-sm-0">
+                <a class="nav-link  text-light" href="#">{{ user.firstname ~ '  ' ~ user.lastname }}
+                </a>
+            </li>
 
-        {% if "ROLE_ADMIN" in user.roles %}
-        <li class="nav-item mr-3 m-sm-0">
-            <a class="nav-link text-warning" href="{{ path('admin') }}">-> Back-office</a>
-        </li>
-        {% endif %}
+            {% if "ROLE_ADMIN" in user.roles %}
+            <li class="nav-item mr-3 m-sm-0">
+                <a class="nav-link text-warning" href="{{ path('admin') }}"><i class="fas fa-cogs"></i> Back-office</a>
+            </li>
+            {% endif %}
 
-    </ul>
+        </ul>
+        <ul class="navbar-nav">
+            {% for locale in locales %}
+                <li>
+                    <a class="nav-link" href="{{ path('change_locale', {'locale': locale}) }}" style="{{ (locale != app.request.locale) ? '' : 'pointer-events: none ;' }}">
+                        <img class="mx-1 px-1" src="{{ asset('images/'~locale~'.png') }}" alt='{{ locale }}' style="{{ (locale != app.request.locale) ? '' : 'opacity:0.33;' }}" height="25">
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+
+    </div>
 </div>
 </nav>

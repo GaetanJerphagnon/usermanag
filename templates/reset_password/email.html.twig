@@ -5,10 +5,10 @@
             <div class="card bg-primary mb-3" style="max-width: 40rem;">
                 <p class="card-header"></p>
                 <div class="card-body text-white">
-                    <p class='text-white'>Hello {{ user.firstname ~ ' ' ~ user.lastname}} !</p>
-                    <p class='text-white'>To reset your password, please visit the following link</p>
+                    <p class='text-white'>{% trans %}Hello{% endtrans %} {{ user.firstname ~ ' ' ~ user.lastname}} !</p>
+                    <p class='text-white'>{% trans %}To reset your password, please visit the following link{% endtrans %}</p>
                     <a href="{{ url('app_reset_password', {token: resetToken.token}) }}">{{ url('app_reset_password', {token: resetToken.token}) }}</a>
-                    <p class='text-white'>This link will expire in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.</p>
+                    <p class='text-white'>{% trans %}This link will expire in{% endtrans %} {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.</p>
                 </div>
             </div>
         </div>

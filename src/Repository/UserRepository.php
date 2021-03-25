@@ -43,6 +43,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     {
         $query = $this->createQueryBuilder('u')
             ->orderBy('u.createdAt', 'DESC')
+            ->andWhere('u.isVerified = 1')
             ->setMaxResults(self::PAGINATOR_PER_PAGE)
             ->setFirstResult($offset)
             ->getQuery()

@@ -6,6 +6,8 @@
 parameters:
     app.path.default_user_avatar: '%kernel.project_dir%/public/images/'
     app.path.default_admin_avatar: '%kernel.project_dir%/public/images/'
+    app.locales: [en, fr ,de, it]
+    app.default.locale: en
 
 services:
     # default configuration for services in *this* file
