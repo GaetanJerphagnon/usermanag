@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="Xn0rsla" resname="Please check your mails to verify your address">
+        <source>Please check your mails to verify your address</source>
+        <target>Please check your mails to verify your address</target>
+      </trans-unit>
+      <trans-unit id="sysN1Kl" resname="An email has been sent to verify your address">
+        <source>An email has been sent to verify your address</source>
+        <target>An email has been sent to verify your address</target>
+      </trans-unit>
+      <trans-unit id="MW3xXbN" resname="Your email address has been verified!">
+        <source>Your email address has been verified!</source>
+        <target>Your email address has been verified!</target>
+      </trans-unit>
+      <trans-unit id="njOR6b8" resname="Homepage">
+        <source>Homepage</source>
+        <target>Homepage</target>
+      </trans-unit>
+      <trans-unit id="e8H2ccH" resname="Born on">
+        <source>Born on</source>
+        <target>Born on</target>
+      </trans-unit>
+      <trans-unit id="oW0a6y." resname="There are">
+        <source>There are</source>
+        <target>There are</target>
+      </trans-unit>
+      <trans-unit id="fftM9nd" resname="users">
+        <source>users</source>
+        <target>users</target>
+      </trans-unit>
+      <trans-unit id="pXsIpIC" resname="Previous">
+        <source>Previous</source>
+        <target>Previous</target>
+      </trans-unit>
+      <trans-unit id="H.V6Kdf" resname="Next">
+        <source>Next</source>
+        <target>Next</target>
+      </trans-unit>
+      <trans-unit id="SWFhRVF" resname="Log out">
+        <source>Log out</source>
+        <target>Log out</target>
+      </trans-unit>
+      <trans-unit id="sF2VxiN" resname="Back to top">
+        <source>Back to top</source>
+        <target>Back to top</target>
+      </trans-unit>
+      <trans-unit id="wkVPAXZ" resname="New to Bootstrap?">
+        <source>New to Bootstrap?</source>
+        <target>New to Bootstrap?</target>
+      </trans-unit>
+      <trans-unit id="mYa4N89" resname="Visit the homepage">
+        <source>Visit the homepage</source>
+        <target>Visit the homepage</target>
+      </trans-unit>
+      <trans-unit id="1SBrEHP" resname="or read our">
+        <source>or read our</source>
+        <target>or read our</target>
+      </trans-unit>
+      <trans-unit id="FDAffnn" resname="getting started guide">
+        <source>getting started guide</source>
+        <target>getting started guide</target>
+      </trans-unit>
+      <trans-unit id="5PcVpFd" resname="Email could not be found">
+        <source>Email could not be found</source>
+        <target>Email could not be found</target>
+      </trans-unit>
+      <trans-unit id="wYmEDPf" resname="Log in">
+        <source>Log in</source>
+        <target>Log in</target>
+      </trans-unit>
+      <trans-unit id="lpzL089" resname="Email">
+        <source>Email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="588_9PF" resname="Password">
+        <source>Password</source>
+        <target>Password</target>
+      </trans-unit>
+      <trans-unit id="n_52xbt" resname="Welcome aboard">
+        <source>Welcome aboard</source>
+        <target>Welcome aboard</target>
+      </trans-unit>
+      <trans-unit id="nZPB._o" resname="Please confirm your email address by clicking the following link">
+        <source>Please confirm your email address by clicking the following link</source>
+        <target>Please confirm your email address by clicking the following link</target>
+      </trans-unit>
+      <trans-unit id="ITaQX9q" resname="Confirm my Email">
+        <source>Confirm my Email</source>
+        <target>Confirm my Email</target>
+      </trans-unit>
+      <trans-unit id="87wG9uu" resname="This link will expire in">
+        <source>This link will expire in</source>
+        <target>This link will expire in</target>
+      </trans-unit>
+      <trans-unit id="u3I07BJ" resname="Register">
+        <source>Register</source>
+        <target>Register</target>
+      </trans-unit>
+      <trans-unit id="_vYfmw2" resname="An email we will be sent to you in order to verify your email address">
+        <source>An email we will be sent to you in order to verify your email address</source>
+        <target>An email we will be sent to you in order to verify your email address</target>
+      </trans-unit>
+      <trans-unit id="DiImtSN" resname="Welcome">
+        <source>Welcome</source>
+        <target>Welcome</target>
+      </trans-unit>
+      <trans-unit id=".f1B3nr" resname="Forgot Password">
+        <source>Forgot Password</source>
+        <target>Forgot Password</target>
+      </trans-unit>
+      <trans-unit id="XiuOllA" resname="Sign up">
+        <source>Sign up</source>
+        <target>Sign up</target>
+      </trans-unit>
+      <trans-unit id="SlXE1Yl" resname="Your are already logged in as">
+        <source>Your are already logged in as</source>
+        <target>Your are already logged in as</target>
+      </trans-unit>
+      <trans-unit id="WfpDeb4" resname="Reset your password">
+        <source>Reset your password</source>
+        <target>Reset your password</target>
+      </trans-unit>
+      <trans-unit id="MtjcP9g" resname="Request a password reset">
+        <source>Request a password reset</source>
+        <target>Request a password reset</target>
+      </trans-unit>
+      <trans-unit id="AuHGqO1" resname="Enter your email address and we we will send you a link to reset your password">
+        <source>Enter your email address and we we will send you a link to reset your password</source>
+        <target>Enter your email address and we we will send you a link to reset your password</target>
+      </trans-unit>
+      <trans-unit id="y2XxXvP" resname="Send password reset email">
+        <source>Send password reset email</source>
+        <target>Send password reset email</target>
+      </trans-unit>
+      <trans-unit id="4O3_s6c" resname="Reset password">
+        <source>Reset password</source>
+        <target>Reset password</target>
+      </trans-unit>
+      <trans-unit id="GF_NsyJ" resname="Hello">
+        <source>Hello</source>
+        <target>Hello</target>
+      </trans-unit>
+      <trans-unit id="vQH5j0c" resname="To reset your password, please visit the following link">
+        <source>To reset your password, please visit the following link</source>
+        <target>To reset your password, please visit the following link</target>
+      </trans-unit>
+      <trans-unit id="U28cTzJ" resname="Password Reset Email Sent">
+        <source>Password Reset Email Sent</source>
+        <target>Password Reset Email Sent</target>
+      </trans-unit>
+      <trans-unit id="MHvHgdr" resname="An Email has been sent">
+        <source>An Email has been sent</source>
+        <target>An Email has been sent</target>
+      </trans-unit>
+      <trans-unit id="evhPDac" resname="It contains a link that you can click to reset your password">
+        <source>It contains a link that you can click to reset your password</source>
+        <target>It contains a link that you can click to reset your password</target>
+      </trans-unit>
+      <trans-unit id="bs9avOq" resname="If you don't receive an email please check your spam folder or">
+        <source>If you don't receive an email please check your spam folder or</source>
+        <target>If you don't receive an email please check your spam folder or</target>
+      </trans-unit>
+      <trans-unit id="W13t7jL" resname="try again">
+        <source>try again</source>
+        <target>try again</target>
+      </trans-unit>
+      <trans-unit id="hpWlheT" resname="Please Confirm your Email">
+        <source>Please Confirm your Email</source>
+        <target>__Please Confirm your Email</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

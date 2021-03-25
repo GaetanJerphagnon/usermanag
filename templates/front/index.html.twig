@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Homepage{% endblock %}
+{% block title %}{% trans %}Homepage{% endtrans %}{% endblock %}
 
 
 {% block body %}
@@ -27,24 +27,24 @@
             <div class="card-header"><img src="{{ asset(user.avatar) }}" alt="User image" class="rounded d-inline mx-2" height="35" width="35"> {{ user.firstname ~ '  ' ~ user.lastname }}</div>
             <div class="card-body">
                 
-                <p class="card-text">Born {{ user.birthday|format_date('none', 'MMMM, dd YYYY', null, 'gregorian', 'en') }}</p>
+                <p class="card-text">{% trans %}Born on{% endtrans %} {{ user.birthday|format_date('none', 'dd MMMM YYYY', null, 'gregorian') }}</p>
                 
             </div>
         </div>
     {% endfor %}
 
     {% set diff =  users|length - app.request.get('offset') %}
-    <div>There are {{ users|length }} users. ( {{ users|length - diff}} /  {{ users|length }} )</div>
+    <div>{% trans %}There are{% endtrans %} {{ users|length }} {% trans %}users{% endtrans %}. ( {{ users|length - diff}} /  {{ users|length }} )</div>
 
     {% if previous >= 0 %}
-        <a class="btn btn-primary" href="{{ path('homepage', { offset: previous }) }}">Previous</a>
+        <a class="btn btn-primary" href="{{ path('homepage', { offset: previous }) }}"> <i class="fas fa-arrow-left"></i> {% trans %}Previous{% endtrans %}</a>
     {% else %}
-        <div class="btn btn-secondary disabled">Previous</div>
+        <div class="btn btn-secondary disabled"> <i class="fas fa-arrow-left"></i> {% trans %}Previous{% endtrans %}</div>
     {% endif %}
     {% if next < users|length %}
-        <a class="btn btn-primary" href="{{ path('homepage', { offset: next }) }}">Next</a>
+        <a class="btn btn-primary" href="{{ path('homepage', { offset: next }) }}">{% trans %}Next{% endtrans %} <i class="fas fa-arrow-right"></i></a>
     {% else %}
-        <div class="btn btn-secondary disabled">Next</div>
+        <div class="btn btn-secondary disabled">{% trans %}Next{% endtrans %} <i class="fas fa-arrow-right"></i></div>
     {% endif %}
     
 </div>
