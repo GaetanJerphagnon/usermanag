@@ -77,15 +77,15 @@
             </form>
 
             <a href="{{ path('app_register') }}">{% trans from "messages" %}Sign up{% endtrans %}</a>
-            <div class="d-flex flex-row mt-2 justify-content-center">
-                {% for locale in locales %}
-                    <a href="{{ path('change_locale', {'locale': locale}) }}" style="{{ (locale != app.request.locale) ? '' : 'pointer-events: none ;' }}">
-                        <img class="mx-1 px-1 bg-{{ (locale != app.request.locale) ? 'primary' : 'dark' }}" src="{{ asset('images/'~locale~'.png') }}" alt='{{ locale }}' style="border-radius: 3px; {{ (locale != app.request.locale) ? '' : 'opacity:0.33;' }}" height="25">
-                    </a>
-                {% endfor %}
-            </div>
 
             {% if app.user and app.user.isVerified %}
+                <div class="d-flex flex-row mt-2 justify-content-center">
+                    {% for locale in locales %}
+                        <a href="{{ path('change_locale', {'locale': locale}) }}" style="{{ (locale != app.request.locale) ? '' : 'pointer-events: none ;' }}">
+                            <img class="mx-1 px-1 bg-{{ (locale != app.request.locale) ? 'primary' : 'dark' }}" src="{{ asset('images/'~locale~'.png') }}" alt='{{ locale }}' style="border-radius: 3px; {{ (locale != app.request.locale) ? '' : 'opacity:0.33;' }}" height="25">
+                        </a>
+                    {% endfor %}
+                </div>
                 <div class="logo mt-3">
                     <div class="logo-caption alreadyConnected">
                         {% trans from "messages" %}Your are already logged in as{% endtrans %} <span class="tweak">{{ app.user.username }}</span>, <a class="logout"href="{{ path('app_logout') }}">{% trans from "messages"%}Log out{% endtrans %}</a>

@@ -31,7 +31,7 @@
       </trans-unit>
       <trans-unit id="fftM9nd" resname="users">
         <source>users</source>
-        <target>users</target>
+        <target>Users</target>
       </trans-unit>
       <trans-unit id="pXsIpIC" resname="Previous">
         <source>Previous</source>
