@@ -7,7 +7,6 @@ App\Entity\User:
         roles: '[ROLE_USER,ROLE_ADMIN]'
         password: '\$argon2id\$v=19\$m=65536,t=4,p=1\$LGX5A+WbhVJE6gpPrHB9KQ\$k7kG3SQEwQ3yArL/aT9WwDQjx7B2w/v+wjBKLhXVy7Q' #admin
         birthday: '<dateTimeBetween("-60 years", "-18 years")>'
-        last_connected_at: '<dateTimeBetween("-20 days", "now")>'
         created_at: '<dateTimeBetween("-20 days", "now")>'
 
     user_{1..26}:
@@ -17,5 +16,4 @@ App\Entity\User:
         slug (unique): '<slug()>'
         password: '\$argon2id\$v=19\$m=65536,t=4,p=1\$D9o2Dcz1vt70ziDEJov1ZA\$bCFX65BtUyYBCjbAXPQbUh490lHQpvpjg6aLnU0Xh2Q' #1234
         birthday: '<dateTimeBetween("-60 years", "-18 years")>'
-        last_connected_at: '<dateTimeBetween("-20 days", "now")>'
         created_at: '<dateTimeBetween("-20 days", "now")>'
