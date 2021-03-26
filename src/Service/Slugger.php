@@ -32,6 +32,10 @@ class Slugger
      */
     public function slugifyUser(User $user)
     {
+        if(!$user->getFirstname() || !$user->getLastname() || !$user->getId()){
+            return $user;
+        };
+
         $slugWithId =
             $this->slugify($user->getFirstname()) .
             '-' .

@@ -91,7 +91,25 @@ d-s-v: .env vendor
 make-mig: ## Makes new migration
 make-mig: .env vendor
 	$(SYMFONY) make:migration
-	
+
+##
+## Tests
+## -----
+
+test: ## Run unit and functional tests
+test: export APP_ENV=test
+test: tu tf
+
+tu: ## Run unit tests
+tu: vendor
+	sudo php bin/phpunit tests/unit
+
+tf: ## Run functional tests
+tf: vendor
+	sudo php bin/phpunit tests/functional
+
+
+.PHONY: test
 ##
 ## Utils
 ## -----	
