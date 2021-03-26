@@ -25,7 +25,9 @@ class UserFixtures extends Fixture
                 $users['user_'.$i]->setAvatar('images/default_user.jpg');
             }
 
-            $users['user_'.$i]->setIsVerified(true);
+            if($users['user_'.$i]->getEmail() !== 'not@verified.com'){
+                $users['user_'.$i]->setIsVerified(true);
+            }
 
             $manager->persist($users['user_'.$i]);
 
