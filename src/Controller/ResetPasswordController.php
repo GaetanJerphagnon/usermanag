@@ -28,9 +28,12 @@ class ResetPasswordController extends AbstractController
 
     private $resetPasswordHelper;
 
-    public function __construct(ResetPasswordHelperInterface $resetPasswordHelper)
+    private $translator;
+
+    public function __construct(ResetPasswordHelperInterface $resetPasswordHelper, TranslatorInterface $translator)
     {
         $this->resetPasswordHelper = $resetPasswordHelper;
+        $this->translator = $translator;
     }
 
     /**
@@ -131,7 +134,7 @@ class ResetPasswordController extends AbstractController
         ]);
     }
 
-    private function processSendingPasswordResetEmail(string $emailFormData, MailerInterface $mailer, TranslatorInterface $translator): RedirectResponse
+    private function processSendingPasswordResetEmail(string $emailFormData, MailerInterface $mailer): RedirectResponse
     {
         $user = $this->getDoctrine()->getRepository(User::class)->findOneBy([
             'email' => $emailFormData,
@@ -159,7 +162,7 @@ class ResetPasswordController extends AbstractController
         $email = (new TemplatedEmail())
             ->from(new Address('manag.user.bot@gmail.com', 'Manag User Bot'))
             ->to($user->getEmail())
-            ->subject($translator->trans('Your password reset request'))
+            ->subject($this->translator->trans('Your password reset request'))
             ->htmlTemplate('reset_password/email.html.twig')
             ->context([
                 'resetToken' => $resetToken,
