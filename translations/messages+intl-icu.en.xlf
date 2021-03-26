@@ -171,7 +171,7 @@
       </trans-unit>
       <trans-unit id="hpWlheT" resname="Please Confirm your Email">
         <source>Please Confirm your Email</source>
-        <target>__Please Confirm your Email</target>
+        <target>Please Confirm your Email</target>
       </trans-unit>
     </body>
   </file>

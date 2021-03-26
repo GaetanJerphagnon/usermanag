@@ -9,6 +9,8 @@ services:
             - ./.docker/datas/mysql:/var/lib/mysql
         environment:
             MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+        ports:
+            - "8081:3306"
         networks:
             - dev
 
