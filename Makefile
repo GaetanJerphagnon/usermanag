@@ -91,6 +91,11 @@ d-s-v: .env vendor
 make-mig: ## Makes new migration
 make-mig: .env vendor
 	$(SYMFONY) make:migration
+
+d-s-c: ## Makes db schema
+d-s-c: .env vendor
+	$(SYMFONY) doctrine:schema:create
+
 	
 ##
 ## Utils

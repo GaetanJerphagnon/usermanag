@@ -4,16 +4,35 @@ App\Entity\User:
         lastname: '<lastName()>'
         email: 'admin@gmail.com'
         slug (unique): '<slug()>'
+        avatar: 'images/default_admin.jpg'
+        is_verified: 'true'
         roles: '[ROLE_USER,ROLE_ADMIN]'
         password: '\$argon2id\$v=19\$m=65536,t=4,p=1\$LGX5A+WbhVJE6gpPrHB9KQ\$k7kG3SQEwQ3yArL/aT9WwDQjx7B2w/v+wjBKLhXVy7Q' #admin
         birthday: '<dateTimeBetween("-60 years", "-18 years")>'
         created_at: '<dateTimeBetween("-20 days", "now")>'
 
-    user_{1..26}:
+    user_{1..10}:
         firstname: '<firstName()>'
         lastname: '<lastName()>'
         email (unique): '<email()>'
         slug (unique): '<slug()>'
+        avatar: 'images/default_user.jpg'
+        is_verified: 'true'
         password: '\$argon2id\$v=19\$m=65536,t=4,p=1\$D9o2Dcz1vt70ziDEJov1ZA\$bCFX65BtUyYBCjbAXPQbUh490lHQpvpjg6aLnU0Xh2Q' #1234
         birthday: '<dateTimeBetween("-60 years", "-18 years")>'
         created_at: '<dateTimeBetween("-20 days", "now")>'
+
+App\Entity\Book:
+    book_{0..20}:
+        isbn: '<isbn13()>'
+        title: '<text(30)>'
+        description: '<paragraph()>'
+        author: '@user_*'
+        publication_date: '<dateTimeBetween("-20 years", "now")>'
+
+App\Entity\Review:
+    review_{0..50}:
+        rating: '<numberBetween(0, 5)>'
+        body: '<paragraph()>'
+        book: '@book_*'
+        author: '@user_*'

@@ -173,6 +173,18 @@
         <source>Please Confirm your Email</source>
         <target>Veuillez confirmer votre email</target>
       </trans-unit>
+      <trans-unit id="ATJ8qA9" resname="Your password reset request">
+        <source>Your password reset request</source>
+        <target>Votre requête de réinitialisation</target>
+      </trans-unit>
+      <trans-unit id="bjF7zWg" resname="books">
+        <source>books</source>
+        <target>Livres</target>
+      </trans-unit>
+      <trans-unit id="VGQQUSA" resname="reviews">
+        <source>reviews</source>
+        <target>Audits</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

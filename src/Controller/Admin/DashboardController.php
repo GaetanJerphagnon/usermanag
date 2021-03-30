@@ -2,6 +2,8 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Book;
+use App\Entity\Review;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -34,6 +36,8 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToCrud('users', 'fas fa-user', User::class);
+        yield MenuItem::linkToCrud('books', 'fas fa-book', Book::class);
+        yield MenuItem::linkToCrud('reviews', 'fas fa-list', Review::class);
         yield MenuItem::linkToRoute('Homepage', 'fas fa-door-open', "homepage");
         yield MenuItem::section('');
         yield MenuItem::linkToLogout('Log out', 'fa fa-sign-out');
