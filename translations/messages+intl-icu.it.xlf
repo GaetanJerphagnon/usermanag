@@ -123,7 +123,7 @@
       </trans-unit>
       <trans-unit id="MtjcP9g" resname="Request a password reset">
         <source>Request a password reset</source>
-        <target>Richiedi una reimpostazione della password</target>
+        <target>Richieda una reimpostazione della password</target>
       </trans-unit>
       <trans-unit id="AuHGqO1" resname="Enter your email address and we we will send you a link to reset your password">
         <source>Enter your email address and we we will send you a link to reset your password</source>
@@ -172,6 +172,18 @@
       <trans-unit id="hpWlheT" resname="Please Confirm your Email">
         <source>Please Confirm your Email</source>
         <target>Per favore, conferma la sua email</target>
+      </trans-unit>
+      <trans-unit id="ATJ8qA9" resname="Your password reset request">
+        <source>Your password reset request</source>
+        <target>La sua reimpostazione della password</target>
+      </trans-unit>
+      <trans-unit id="bjF7zWg" resname="books">
+        <source>books</source>
+        <target>Libri</target>
+      </trans-unit>
+      <trans-unit id="VGQQUSA" resname="reviews">
+        <source>reviews</source>
+        <target>Recensioni</target>
       </trans-unit>
     </body>
   </file>
