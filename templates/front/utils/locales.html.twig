@@ -1,0 +1,7 @@
+{% for locale in locales %}
+    <li>
+        <a class="nav-link" href="{{ path('change_locale', {'locale': locale}) }}" style="{{ (locale != app.request.locale) ? '' : 'pointer-events: none ;' }}">
+            <img class="mx-1 px-1" src="{{ asset('images/'~locale~'.png') }}" alt='{{ locale }}' style="{{ (locale != app.request.locale) ? '' : 'opacity:0.33;' }}" height="25">
+        </a>
+    </li>
+{% endfor %}

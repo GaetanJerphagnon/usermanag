@@ -1,0 +1,11 @@
+api_platform:
+    show_webby: false
+    title: 'Usermanag API'
+    description: 'Simple tool for user managment.'
+    mapping:
+        paths: ['%kernel.project_dir%/src/Entity']
+    patch_formats:
+        json: ['application/merge-patch+json']
+    swagger:
+        versions: [3]
+    

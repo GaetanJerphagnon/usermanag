@@ -3,14 +3,31 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use App\Controller\Api\EmptyController;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\Table(name="`user`")
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @ApiResource(
+ *      collectionOperations={},
+ *      itemOperations={
+ *          "get"={
+ *              "controller"=App\Controller\Api\EmptyController::class,
+ *              "read"=false,
+ *              "deserialize"=false,
+ *          }
+ *      }
+ * )
  */
 class User implements UserInterface
 {
@@ -18,42 +35,50 @@ class User implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"read:book","read:review"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Groups({"read:book","read:review"})
      */
     private $email;
 
     /**
      * @ORM\Column(type="json")
+     * @Groups({"read:book","read:review"})
      */
     private $roles = ["ROLE_USER"];
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"read:book","read:review"})
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"read:book","read:review"})
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"read:book","read:review"})
      */
     private $avatar;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"read:book","read:review"})
      */
     private $slug;
 
@@ -74,6 +99,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"read:book","read:review"})
      */
     private $birthday;
 
@@ -82,9 +108,26 @@ class User implements UserInterface
      */
     private $isVerified = false;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Review::class, mappedBy="author")
+     */
+    private $reviews;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Book::class, mappedBy="author")
+     */
+    private $books;
+
+    public function __toString()
+    {
+        return $this->firstname.' '.$this->lastname;
+    }
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
+        $this->reviews = new ArrayCollection();
+        $this->books = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -272,6 +315,66 @@ class User implements UserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Review[]
+     */
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function addReview(Review $review): self
+    {
+        if (!$this->reviews->contains($review)) {
+            $this->reviews[] = $review;
+            $review->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReview(Review $review): self
+    {
+        if ($this->reviews->removeElement($review)) {
+            // set the owning side to null (unless already changed)
+            if ($review->getAuthor() === $this) {
+                $review->setAuthor(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Book[]
+     */
+    public function getBooks(): Collection
+    {
+        return $this->books;
+    }
+
+    public function addBook(Book $book): self
+    {
+        if (!$this->books->contains($book)) {
+            $this->books[] = $book;
+            $book->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBook(Book $book): self
+    {
+        if ($this->books->removeElement($book)) {
+            // set the owning side to null (unless already changed)
+            if ($book->getAuthor() === $this) {
+                $book->setAuthor(null);
+            }
+        }
 
         return $this;
     }
